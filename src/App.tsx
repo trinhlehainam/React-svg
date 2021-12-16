@@ -1,30 +1,28 @@
 import React from 'react';
+import logo from './logo.svg';
 import './App.css';
-import MenuButton from './components/menubutton';
 
-const styles: React.CSSProperties = {
-    backgroundImage: `url(/background.png)`,
-    backgroundPosition: 'center',
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-}
+import * as Colyseus from 'colyseus.js'
 
 function App() {
+  const client = new Colyseus.Client("ws://localhost:3000");
   return (
-    <div
-    className="h-screen w-screen fixed min-h-screen"
-    style={styles}>
-        <div
-        className="container grid grid-cols-1 justify-center mx-auto h-full">
-            <div className="justify-center h-1/4 my-auto">
-                <MenuButton classname="fill-current w-full"/>
-            </div>
-            <div className=" relative justify-center grid grid-cols-1 mx-auto my-auto h-3/4">
-                <MenuButton classname="fill-current w-full mb-8"/>
-                <MenuButton classname="fill-current w-full mb-8"/>
-                <MenuButton classname="fill-current w-full mb-8"/>
-            </div>
-        </div>
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.tsx</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+        <span className='text-white text-xs'>Global Checker</span>
+      </header>
     </div>
   );
 }
